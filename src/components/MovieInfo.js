@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {
+  useParams,
+  NavLink,
+  Outlet,
+  Link,
+  useLocation,
+} from 'react-router-dom';
 import { getFilmInfo } from './API';
 import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
   const { filmId } = useParams(null);
   const [film, setFilm] = useState({});
+  const location = useLocation();
 
   useEffect(() => {
     getFilmInfo(filmId).then(result => {
       setFilm(result.data);
-      console.log(result.data);
     });
   }, [filmId]);
 
@@ -18,7 +24,7 @@ const MovieInfo = () => {
     return;
   }
 
-  const BASE_URL = 'https://image.tmdb.org/t/p/w300';
+  const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
   const {
     poster_path,
@@ -27,16 +33,21 @@ const MovieInfo = () => {
     original_title,
     vote_average,
     overview,
-    // genres,
+    genres,
+    homepage,
   } = film;
+
+  const backLink = location.state?.from && '/home';
+
   return (
     <>
-      <button type="button" className={css.btnBack}>
+      <Link to={backLink} className={css.btnBack}>
         Go back
-      </button>
+      </Link>
       <div className={css.filmInfo}>
         <img
           src={`${BASE_URL + poster_path}`}
+          width="220px"
           alt={title}
           aria-label={title}
           className={css.filmImg}
@@ -47,9 +58,38 @@ const MovieInfo = () => {
           <h2>Owerview</h2>
           <p className={css.overview}>{overview}</p>
           <h3>Genres</h3>
-          {/* <p>{genres.map(genr => genr.name).join(', ')}</p> */}
+          <p>{genres ? genres.map(genr => genr.name).join(', ') : ''}</p>
+          {homepage && (
+            <a href={homepage} className="" target="_blank" rel="noreferrer">
+              Homepage
+            </a>
+          )}
         </div>
       </div>
+      <div className={css.addFilmInfo}>
+        <p>Additional informatoin</p>
+        <ul>
+          <li className={css.addInfoList}>
+            <NavLink
+              to="cast"
+              className={css.addInfoLink}
+              state={location?.state?.from}
+            >
+              Cast
+            </NavLink>
+          </li>
+          <li className={css.addInfoList}>
+            <NavLink
+              to="reviews"
+              className={css.addInfoLink}
+              state={location?.state?.from}
+            >
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+      <Outlet />
     </>
   );
 };

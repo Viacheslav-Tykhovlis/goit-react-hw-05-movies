@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { getTrendFilms } from '../components/API';
 import css from './Home.module.css';
 
 const Home = () => {
   const [trendFilms, setTrendFilms] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     getTrendFilms().then(result => {
@@ -21,6 +22,7 @@ const Home = () => {
             <NavLink
               to={`/movies/${film.id}`}
               className={css.trendingFilmsLink}
+              state={{ from: location }}
             >
               {film.title || film.original_title || film.name}
             </NavLink>

@@ -18,3 +18,27 @@ export const getFilmInfo = id => {
 
   return infoFilm;
 };
+
+export const getCastFilm = id => {
+  const castFilm = axios.get(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+  );
+
+  return castFilm;
+};
+
+export const getReviewsFilm = id => {
+  const reviewsFilm = axios.get(
+    `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
+  );
+
+  return reviewsFilm;
+};
+
+export const getFilms = text => {
+  const films = axios.get(
+    `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${text}&page=1&include_adult=true`
+  );
+
+  return films;
+};
