@@ -17,8 +17,10 @@ const MovieInfo = () => {
 
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
+  const fromLocation = location.state.from || '/';
+
   const handleGoBack = () => {
-    navigate(location.state?.from);
+    navigate(fromLocation);
   };
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const MovieInfo = () => {
             <NavLink
               to="cast"
               className={css.addInfoLink}
-              state={location.state?.from}
+              state={location.state}
             >
               Cast
             </NavLink>
@@ -90,7 +92,7 @@ const MovieInfo = () => {
             <NavLink
               to="reviews"
               className={css.addInfoLink}
-              state={location.state?.from}
+              state={location.state}
             >
               Reviews
             </NavLink>
