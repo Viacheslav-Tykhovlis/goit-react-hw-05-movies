@@ -1,0 +1,30 @@
+.header {
+  padding: 30px;
+  margin-bottom: 15px;
+  border-bottom: 0px solid grey;
+  box-shadow: 0 3px 8px 1px rgb(199, 199, 199);
+}
+
+.nav {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navList {
+  font-weight: 700;
+  font-size: larger;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  transition: color 200ms linear;
+}
+
+.navList:hover:not(.active) {
+  color: aquamarine;
+}
+
+.navList:not(:last-child) {
+  margin-right: 30px;
+}
