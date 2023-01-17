@@ -12,7 +12,7 @@ const AppBar = () => {
   return (
     <header className={css.header}>
       <nav className={css.nav}>
-        <StyledLink to="/home" className={css.navList}>
+        <StyledLink to="/" className={css.navList}>
           Home
         </StyledLink>
         <StyledLink to="/movies" className={css.navList}>
