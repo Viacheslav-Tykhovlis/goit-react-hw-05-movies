@@ -3,29 +3,39 @@ import {
   useParams,
   NavLink,
   Outlet,
-  Link,
   useLocation,
+  useNavigate,
 } from 'react-router-dom';
 import { getFilmInfo } from './API';
 import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
-  const { filmId } = useParams(null);
-  const [film, setFilm] = useState({});
+  const { filmId } = useParams();
+  const [film, setFilm] = useState();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const BASE_URL = 'https://image.tmdb.org/t/p/original';
+
+  const handleGoBack = () => {
+    navigate(location.state?.from);
+  };
 
   useEffect(() => {
-    getFilmInfo(filmId).then(result => {
-      setFilm(result.data);
-    });
+    const getFilm = async () => {
+      await getFilmInfo(filmId).then(result => {
+        setFilm(result.data);
+      });
+    };
+    getFilm();
   }, [filmId]);
 
   if (!filmId) {
     return;
   }
-
-  const BASE_URL = 'https://image.tmdb.org/t/p/original';
-
+  if (!film) {
+    return;
+  }
   const {
     poster_path,
     title,
@@ -37,13 +47,11 @@ const MovieInfo = () => {
     homepage,
   } = film;
 
-  const backLink = location.state?.from && '/home';
-
   return (
     <>
-      <Link to={backLink} className={css.btnBack}>
+      <button type="button" className={css.btnBack} onClick={handleGoBack}>
         Go back
-      </Link>
+      </button>
       <div className={css.filmInfo}>
         <img
           src={`${BASE_URL + poster_path}`}
@@ -73,7 +81,7 @@ const MovieInfo = () => {
             <NavLink
               to="cast"
               className={css.addInfoLink}
-              state={location?.state?.from}
+              state={location.state?.from}
             >
               Cast
             </NavLink>
@@ -82,7 +90,7 @@ const MovieInfo = () => {
             <NavLink
               to="reviews"
               className={css.addInfoLink}
-              state={location?.state?.from}
+              state={location.state?.from}
             >
               Reviews
             </NavLink>
