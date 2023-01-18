@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCastFilm } from './API';
+import { getCastFilm } from '../API';
 import css from './Cast.module.css';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w300';
