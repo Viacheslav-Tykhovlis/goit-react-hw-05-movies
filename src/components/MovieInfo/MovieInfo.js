@@ -6,18 +6,18 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { getFilmInfo } from './API';
+import { getFilmInfo } from '../API';
 import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
   const { filmId } = useParams();
-  const [film, setFilm] = useState();
+  const [film, setFilm] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
 
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
-  const fromLocation = location.state.from || '/';
+  const fromLocation = location?.state?.from || '/';
 
   const handleGoBack = () => {
     navigate(fromLocation);
@@ -32,12 +32,10 @@ const MovieInfo = () => {
     getFilm();
   }, [filmId]);
 
-  if (!filmId) {
+  if (!filmId || !film) {
     return;
   }
-  if (!film) {
-    return;
-  }
+
   const {
     poster_path,
     title,

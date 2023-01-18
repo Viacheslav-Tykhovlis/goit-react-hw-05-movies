@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import css from './SearchMovies.module.css';
+import css from './ListMovies.module.css';
 
-const SearchMovies = ({ films }) => {
+const ListMovies = ({ films }) => {
   const location = useLocation();
 
   return (
@@ -10,7 +10,7 @@ const SearchMovies = ({ films }) => {
         {films.map(film => (
           <li className={css.searchingFilmsList} key={film.id}>
             <NavLink
-              to={`${film.id}`}
+              to={`/movies/${film.id}`}
               className={css.searchingFilmsLink}
               state={{ from: location }}
             >
@@ -23,4 +23,4 @@ const SearchMovies = ({ films }) => {
   );
 };
 
-export default SearchMovies;
+export default ListMovies;

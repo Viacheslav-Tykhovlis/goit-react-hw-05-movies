@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getFilms } from 'components/API';
-import SearchBox from 'components/SearchBox';
-import SearchMovies from 'components/SearchMovies';
+import SearchBox from 'components/SearchBox/SearchBox';
+import ListMovies from 'components/ListMovies/ListMovies';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
@@ -29,7 +29,7 @@ const Movies = () => {
   return (
     <>
       <SearchBox onChange={handleChange} onSubmit={handleSubmit} />
-      <SearchMovies films={films} />
+      <ListMovies films={films} />
     </>
   );
 };
