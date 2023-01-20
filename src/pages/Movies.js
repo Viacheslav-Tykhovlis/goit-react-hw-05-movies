@@ -6,29 +6,23 @@ import ListMovies from 'components/ListMovies/ListMovies';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
-  const [search, setSearch] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const searchFilms = searchParams.get('search');
 
-  const handleChange = e => {
-    setSearch(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSearchParams({ search });
+  const handleSubmit = text => {
+    setSearchParams({ search: text });
   };
 
   useEffect(() => {
-    const search = searchParams.get('search');
-    if (!search) {
+    if (!searchFilms) {
       return;
     }
-    getFilms(search).then(res => setFilms(res.data.results));
-  }, [search, searchParams]);
+    getFilms(searchFilms).then(res => setFilms(res.data.results));
+  }, [searchFilms]);
 
   return (
     <>
-      <SearchBox onChange={handleChange} onSubmit={handleSubmit} />
+      <SearchBox onSubmit={handleSubmit} />
       <ListMovies films={films} />
     </>
   );

@@ -17,10 +17,10 @@ const MovieInfo = () => {
 
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
-  const fromLocation = location?.state?.from || '/';
+  // const fromLocation = location?.state?.from || '/';
 
   const handleGoBack = () => {
-    navigate(fromLocation);
+    navigate(location?.state?.from || '/');
   };
 
   useEffect(() => {
