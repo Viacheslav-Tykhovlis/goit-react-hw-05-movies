@@ -11,7 +11,7 @@ import css from './MovieInfo.module.css';
 
 const MovieInfo = () => {
   const { filmId } = useParams();
-  const [film, setFilm] = useState({});
+  const [film, setFilm] = useState();
   const location = useLocation();
   const navigate = useNavigate();
 
