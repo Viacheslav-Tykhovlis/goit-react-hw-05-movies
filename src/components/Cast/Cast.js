@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastFilm } from '../API';
+import defaultImage from '../../images/notFound.png';
 import css from './Cast.module.css';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w300';
@@ -13,13 +14,20 @@ const Cast = () => {
     getCastFilm(filmId).then(rest => setCast(rest.data.cast));
   }, [filmId]);
 
+  const isNotImage = path => {
+    if (!path) {
+      return null;
+    }
+    return `${BASE_URL + path}`;
+  };
+
   return (
     <div>
       <ul>
         {cast.map(one => (
           <li className={css.cast} key={one.id}>
             <img
-              src={`${BASE_URL + one.profile_path}`}
+              src={isNotImage(one.profile_path) || defaultImage}
               width="220px"
               alt={one.name}
               aria-label={one.name}
