@@ -16,9 +16,10 @@ const AppBar = () => {
           Home
         </StyledLink>
         <StyledLink to="/movies" className={css.navList}>
-          Movies
+          Search
         </StyledLink>
       </nav>
+      <p className={css.headerText}>Find movie you really want to see</p>
     </header>
   );
 };

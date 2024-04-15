@@ -1,11 +1,21 @@
 .searchingFilms {
-  list-style: circle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
 }
 
-.searchingFilmsList:not(:last-child) {
+.searchingFilmsList {
+  display: block;
+  width: calc((100% - 2 * 15) / 3);
+}
+
+/* .searchingFilmsList:not(:last-child) {
   margin-bottom: 5px;
   padding: 4px;
-}
+} */
 
 .searchingFilmsLink {
   padding: 4px;
@@ -15,7 +25,7 @@
   transition: color 200ms linear, background-color 200ms linear;
 }
 
-.searchingFilmsLink:hover {
+/* .searchingFilmsLink:hover {
   color: rgb(214, 230, 124);
   background-color: blueviolet;
-}
+} */

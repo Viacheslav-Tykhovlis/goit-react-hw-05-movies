@@ -1,12 +1,16 @@
+.generalHome {
+  text-align: center;
+}
+
 .homeTitle {
   margin-left: 10px;
 }
 
-.trendingFilms {
+/* .trendingFilms {
   list-style: circle;
-}
+} */
 
-.trendingFilmsList:not(:last-child) {
+/* .trendingFilmsList:not(:last-child) {
   margin-bottom: 5px;
   padding: 4px;
 }
@@ -22,4 +26,4 @@
 .trendingFilmsLink:hover {
   color: rgb(214, 230, 124);
   background-color: blueviolet;
-}
+} */
