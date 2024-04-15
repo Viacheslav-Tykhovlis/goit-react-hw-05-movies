@@ -53,13 +53,15 @@ const MovieInfo = () => {
         Go back
       </button>
       <div className={css.filmInfo}>
-        <img
-          src={`${BASE_URL + poster_path}`}
-          width="220px"
-          alt={title}
-          aria-label={title}
-          className={css.filmImg}
-        />
+        <div className={css.filmImgCont}>
+          <img
+            src={`${BASE_URL + poster_path}`}
+            // width="220px"
+            alt={title}
+            aria-label={title}
+            className={css.filmImg}
+          />
+        </div>
         <div>
           <h1>{title || original_title || name}</h1>
           <p>User score: {Math.round(vote_average * 10)}%</p>

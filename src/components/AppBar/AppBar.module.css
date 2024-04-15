@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 30px;
   margin-bottom: 15px;
   border-bottom: 0px solid grey;
@@ -10,6 +13,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  margin-right: 30px;
 }
 
 .navList {
@@ -27,4 +31,10 @@
 
 .navList:not(:last-child) {
   margin-right: 30px;
+}
+
+.headerText {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgb(144, 142, 142);
 }
