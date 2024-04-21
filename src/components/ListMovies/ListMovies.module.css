@@ -1,31 +1,66 @@
 .searchingFilms {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 15px;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .searchingFilmsList {
-  display: block;
-  width: calc((100% - 2 * 15) / 3);
+  max-width: 30%;
+  transition: transform ease-out 250ms;
 }
 
-/* .searchingFilmsList:not(:last-child) {
-  margin-bottom: 5px;
-  padding: 4px;
-} */
+.searchingFilmsList:hover {
+  transform: scale(1.1);
+}
 
 .searchingFilmsLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
   padding: 4px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-decoration: none;
   color: black;
-  transition: color 200ms linear, background-color 200ms linear;
 }
 
-/* .searchingFilmsLink:hover {
-  color: rgb(214, 230, 124);
-  background-color: blueviolet;
-} */
+.filmImgCont {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+  max-height: 100%;
+  flex-grow: 1;
+  margin-bottom: 0.8rem;
+}
+
+.filmImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.filmDiscription {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.filmTitle {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.filmTextRating {
+  font-size: 0.8rem;
+  margin: 0;
+}
