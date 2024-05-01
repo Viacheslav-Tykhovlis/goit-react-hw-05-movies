@@ -1,11 +1,18 @@
+.headerWrapper {
+  margin-bottom: 15px;
+  border-bottom: 0px solid grey;
+  box-shadow: 0 3px 8px 1px rgb(199, 199, 199);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 1000px;
   padding: 30px;
-  margin-bottom: 15px;
-  border-bottom: 0px solid grey;
-  box-shadow: 0 3px 8px 1px rgb(199, 199, 199);
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .nav {

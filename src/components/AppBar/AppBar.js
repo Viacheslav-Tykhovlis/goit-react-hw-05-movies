@@ -10,17 +10,19 @@ const StyledLink = styled(NavLink)`
 
 const AppBar = () => {
   return (
-    <header className={css.header}>
-      <nav className={css.nav}>
-        <StyledLink to="/" className={css.navList}>
-          Home
-        </StyledLink>
-        <StyledLink to="/movies" className={css.navList}>
-          Search
-        </StyledLink>
-      </nav>
-      <p className={css.headerText}>Find movie you really want to see</p>
-    </header>
+    <div className={css.headerWrapper}>
+      <header className={css.header}>
+        <nav className={css.nav}>
+          <StyledLink to="/" className={css.navList}>
+            Home
+          </StyledLink>
+          <StyledLink to="/movies" className={css.navList}>
+            Search
+          </StyledLink>
+        </nav>
+        <p className={css.headerText}>Find movie you really want to see</p>
+      </header>
+    </div>
   );
 };
 
