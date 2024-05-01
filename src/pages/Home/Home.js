@@ -12,6 +12,8 @@ const Home = () => {
     });
   }, []);
 
+  console.log(trendFilms);
+
   return (
     <div className={css.generalHome}>
       <h2 className={css.homeTitle}>Trending today</h2>

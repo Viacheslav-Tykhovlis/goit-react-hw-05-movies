@@ -7,7 +7,7 @@ const ListMovies = ({ films }) => {
   const location = useLocation();
 
   return (
-    <>
+    <div>
       <ul className={css.searchingFilms}>
         {films.map(film => (
           <li className={css.searchingFilmsList} key={film.id}>
@@ -32,7 +32,7 @@ const ListMovies = ({ films }) => {
                   Rating:
                   <br />
                   <span className={css.filmCard__rating}>
-                    {film.vote_average}
+                    {film.vote_average.toFixed(1)}
                   </span>
                 </p>
               </div>
@@ -40,7 +40,7 @@ const ListMovies = ({ films }) => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

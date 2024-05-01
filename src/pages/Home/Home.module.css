@@ -5,25 +5,3 @@
 .homeTitle {
   margin-left: 10px;
 }
-
-/* .trendingFilms {
-  list-style: circle;
-} */
-
-/* .trendingFilmsList:not(:last-child) {
-  margin-bottom: 5px;
-  padding: 4px;
-}
-
-.trendingFilmsLink {
-  padding: 4px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: black;
-  transition: color 200ms linear, background-color 200ms linear;
-}
-
-.trendingFilmsLink:hover {
-  color: rgb(214, 230, 124);
-  background-color: blueviolet;
-} */
