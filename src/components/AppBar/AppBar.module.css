@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1000px;
+  width: 90%;
   padding: 30px;
 
   margin-right: auto;
@@ -44,4 +44,5 @@
   text-transform: uppercase;
   font-weight: bold;
   text-shadow: 0 0 5px rgb(144, 142, 142);
+  margin: 0;
 }

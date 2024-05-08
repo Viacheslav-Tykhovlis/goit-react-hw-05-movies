@@ -23,18 +23,19 @@ const Cast = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={css.casts}>
         {cast.map(one => (
           <li className={css.cast} key={one.id}>
-            <img
-              src={isNotImage(one.profile_path) || defaultImage}
-              width="220px"
-              alt={one.name}
-              aria-label={one.name}
-              className={css.castImg}
-            />
-            <div>
-              <p>Name: {one.name}</p>
+            <div className={css.imgWrap}>
+              <img
+                src={isNotImage(one.profile_path) || defaultImage}
+                alt={one.name}
+                aria-label={one.name}
+                className={css.castImg}
+              />
+            </div>
+            <div className={css.castDiscription}>
+              <p className={css.castName}>Name: {one.name}</p>
               <p>Character: {one.character}</p>
             </div>
           </li>
