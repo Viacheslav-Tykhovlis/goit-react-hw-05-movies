@@ -62,7 +62,7 @@ const MovieInfo = () => {
             className={css.filmImg}
           />
         </div>
-        <div>
+        <div className={css.filmDiscription}>
           <h1>{title || original_title || name}</h1>
           <p>User score: {Math.round(vote_average * 10)}%</p>
           <h2>Owerview</h2>
